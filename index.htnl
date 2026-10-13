@@ -1,0 +1,3576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aegis Health Medical Center | Clinical Diagnostics & Care</title>
+  <style>
+/* ==========================================================================
+   AEGIS HEALTH MEDICAL CENTER - DESIGN SYSTEM & STYLESHEET
+   Medical Grade, Modern UI/UX, Accessible, Responsive
+   ========================================================================== */
+
+:root {
+  --primary-navy: #091e42;
+  --primary-blue: #0284c7;
+  --primary-blue-hover: #0369a1;
+  --primary-light: #e0f2fe;
+  --teal-accent: #0d9488;
+  --teal-light: #ccfbf1;
+  --emerald-success: #10b981;
+  
+  --danger-red: #ef4444;
+  --danger-dark: #b91c1c;
+  --danger-light: #fee2e2;
+  --warning-amber: #f59e0b;
+  --warning-light: #fef3c7;
+  
+  --bg-slate: #f8fafc;
+  --bg-card: #ffffff;
+  --border-color: #e2e8f0;
+  --border-focus: #38bdf8;
+  
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 20px -2px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 35px -5px rgba(15, 23, 42, 0.12);
+  --shadow-glow: 0 0 25px rgba(2, 132, 199, 0.2);
+  
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  color: var(--text-main);
+  background-color: var(--bg-slate);
+  line-height: 1.5;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Base Typography & Links */
+a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-blue-hover);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-navy);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Top Emergency Announcement Bar */
+.top-announcement {
+  background: linear-gradient(90deg, #091e42 0%, #1e293b 100%);
+  color: #ffffff;
+  padding: 8px 24px;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-announcement-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.er-ticker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.er-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  animation: pulseAnimation 1.5s infinite;
+}
+
+@keyframes pulseAnimation {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.urgent-care-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.hotline-link {
+  color: #ffffff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hotline-link:hover {
+  color: #38bdf8;
+}
+
+/* Header & Navbar */
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.header-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-icon-wrap {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--teal-accent) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
+.brand-text h1 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary-navy);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.brand-text span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--teal-accent);
+  font-weight: 700;
+}
+
+.main-nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.nav-link {
+  color: #334155;
+  font-weight: 600;
+  font-size: 0.95rem;
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary-blue);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-blue);
+  border-radius: 2px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, #0369a1 100%);
+  color: white;
+  box-shadow: 0 3px 12px rgba(2, 132, 199, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35);
+  color: white;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #334155;
+  border-color: var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: var(--primary-navy);
+}
+
+.btn-teal {
+  background: linear-gradient(135deg, var(--teal-accent) 0%, #0f766e 100%);
+  color: white;
+}
+
+.btn-teal:hover {
+  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
+  color: white;
+}
+
+.btn-danger {
+  background: var(--danger-red);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: var(--danger-dark);
+  color: white;
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 1.05rem;
+  border-radius: var(--radius-md);
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  background: radial-gradient(circle at 80% 20%, #e0f2fe 0%, #f8fafc 60%);
+  padding: 60px 24px 70px;
+  border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.hero-grid {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.badge-headline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(2, 132, 199, 0.1);
+  color: var(--primary-blue);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 18px;
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  line-height: 1.12;
+  font-weight: 800;
+  color: var(--primary-navy);
+  margin-bottom: 20px;
+}
+
+.hero-title span {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--teal-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 580px;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.hero-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}
+
+.stat-item h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary-navy);
+  line-height: 1.1;
+}
+
+.stat-item p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Hero Quick Diagnostic Card */
+.hero-quick-check {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  position: relative;
+}
+
+.quick-check-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.check-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #e0f2fe 0%, #ccfbf1 100%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-blue);
+}
+
+.quick-check-header h2 {
+  font-size: 1.35rem;
+  margin-bottom: 2px;
+}
+
+.quick-check-header p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.quick-search-box {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.search-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-light);
+  pointer-events: none;
+}
+
+.quick-symptom-input {
+  width: 100%;
+  padding: 14px 16px 14px 44px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background: #f8fafc;
+  transition: all 0.2s;
+}
+
+.quick-symptom-input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.12);
+}
+
+.quick-tag-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.quick-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.quick-chip {
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  background: #f1f5f9;
+  border: 1px solid var(--border-color);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.quick-chip:hover, .quick-chip.active {
+  background: var(--primary-light);
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.quick-check-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-color);
+  padding-top: 18px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* SECTION CONTAINER */
+.section-wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.section-head-center {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 50px;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--teal-accent);
+  background: var(--teal-light);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 2.3rem;
+  margin-bottom: 14px;
+  color: var(--primary-navy);
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   THE DIAGNOSTIC ENGINE STUDIO (PRIMARY HOME PAGE FEATURE)
+   ========================================================================== */
+.diagnostics-studio {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.studio-nav-header {
+  background: linear-gradient(90deg, #0f172a 0%, #1e293b 100%);
+  padding: 20px 30px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.studio-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.studio-badge-ai {
+  background: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: white;
+}
+
+.studio-tabs {
+  display: flex;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px;
+  border-radius: var(--radius-md);
+}
+
+.studio-tab-btn {
+  background: transparent;
+  color: #cbd5e1;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.studio-tab-btn.active {
+  background: #ffffff;
+  color: var(--primary-navy);
+  box-shadow: var(--shadow-sm);
+}
+
+.studio-layout-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  min-height: 640px;
+}
+
+/* Studio Left: Patient Input & Selector */
+.studio-input-pane {
+  padding: 32px;
+  border-right: 1px solid var(--border-color);
+  background: #ffffff;
+  overflow-y: auto;
+  max-height: 800px;
+}
+
+.pane-block {
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.pane-block:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.block-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.block-title span.step-num {
+  width: 24px;
+  height: 24px;
+  background: var(--primary-light);
+  color: var(--primary-blue);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+/* Profile Selectors */
+.patient-profile-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.select-control, .input-control {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: #f8fafc;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.select-control:focus, .input-control:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  background: #ffffff;
+}
+
+/* Comorbidity Checkboxes */
+.comorbidity-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.checkbox-pill {
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox-pill input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-pill .pill-content {
+  padding: 6px 14px;
+  background: #f1f5f9;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #475569;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.checkbox-pill input:checked + .pill-content {
+  background: #eff6ff;
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+/* Anatomical Body Map & Region Selector */
+.body-region-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.region-btn {
+  background: #f8fafc;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 12px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.region-btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.region-btn.active {
+  background: #eff6ff;
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.15);
+}
+
+.region-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-blue);
+  border: 1px solid var(--border-color);
+}
+
+.region-btn.active .region-icon {
+  background: var(--primary-blue);
+  color: white;
+  border-color: var(--primary-blue);
+}
+
+.region-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* Symptoms Matrix Container */
+.symptom-picker-container {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.symptom-list-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 4px;
+}
+
+.symptom-toggle-chip {
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  background: white;
+  border: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.symptom-toggle-chip:hover {
+  border-color: var(--primary-blue);
+}
+
+.symptom-toggle-chip.selected {
+  background: var(--primary-blue);
+  color: white;
+  border-color: var(--primary-blue);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
+}
+
+.symptom-toggle-chip.emergency {
+  border-left: 3px solid var(--danger-red);
+}
+
+.symptom-toggle-chip.selected.emergency {
+  background: var(--danger-red);
+  border-color: var(--danger-red);
+}
+
+/* Severity & Duration */
+.slider-group {
+  margin-top: 14px;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.severity-slider {
+  width: 100%;
+  accent-color: var(--primary-blue);
+  cursor: pointer;
+}
+
+/* Selected Symptoms Tray */
+.selected-tray {
+  margin-top: 14px;
+  padding: 12px;
+  background: #ffffff;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border-color);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.tray-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.tray-chip {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tray-remove {
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Studio Right: Live Diagnostic Results & Triage Output */
+.studio-output-pane {
+  background: #f8fafc;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  max-height: 800px;
+}
+
+/* Emergency Red-Flag Banner (Conditional) */
+.emergency-alarm-card {
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+  color: white;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.35);
+  animation: shakeAlert 0.4s ease-in-out;
+}
+
+@keyframes shakeAlert {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.alarm-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.alarm-header h3 {
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.alarm-text {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin-bottom: 14px;
+  opacity: 0.95;
+}
+
+.alarm-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Triage Recommendation Card */
+.triage-tier-card {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.triage-badge-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.triage-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-emergency {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #f87171;
+}
+
+.badge-urgent {
+  background: #fef3c7;
+  color: #d97706;
+  border: 1px solid #fcd34d;
+}
+
+.badge-routine {
+  background: #e0f2fe;
+  color: #0284c7;
+  border: 1px solid #7dd3fc;
+}
+
+.triage-wait-pill {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.triage-tier-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.triage-tier-card p {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* Differential Matches List */
+.differential-box {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 24px;
+  border: 1px solid var(--border-color);
+}
+
+.differential-box h4 {
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.match-item {
+  padding: 14px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.match-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.match-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.match-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--primary-navy);
+}
+
+.match-pct {
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--primary-blue);
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--teal-accent));
+  transition: width 0.4s ease;
+}
+
+.match-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.match-dept-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #0369a1;
+  background: #f0f9ff;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+/* Recommended Specialist Card */
+.specialist-recom-card {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.recom-head {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 12px;
+}
+
+.doctor-mini-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.doc-info-cluster {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.doc-mini-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary-blue);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+}
+
+.doc-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--primary-navy);
+}
+
+.doc-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Clinical Action Buttons */
+.studio-action-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Disclaimer text */
+.clinical-disclaimer {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  border-top: 1px solid var(--border-color);
+  padding-top: 12px;
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   DEPARTMENTS & CENTERS OF EXCELLENCE
+   ========================================================================== */
+.dept-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.dept-card {
+  background: white;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  padding: 30px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.dept-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: #cbd5e1;
+}
+
+.dept-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--primary-light);
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.dept-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.dept-card p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.dept-stats {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* ==========================================================================
+   DOCTORS DIRECTORY SECTION
+   ========================================================================== */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.doc-card {
+  background: white;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.doc-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.doc-card-body {
+  padding: 24px;
+  flex-grow: 1;
+}
+
+.doc-header {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.doc-avatar-large {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
+  color: white;
+  font-weight: 800;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.doc-rating-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #b45309;
+  background: #fef3c7;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  margin-top: 4px;
+}
+
+.doc-meta {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.doc-slot-badge {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.doc-card-footer {
+  padding: 16px 24px;
+  background: #f8fafc;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==========================================================================
+   CAMPUS & EMERGENCY LIVE LOCATIONS
+   ========================================================================== */
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.location-card {
+  background: white;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.loc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.loc-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+
+.loc-badge.level1 {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.loc-wait-display {
+  background: #f8fafc;
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  margin: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loc-wait-val {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary-navy);
+}
+
+/* ==========================================================================
+   APPOINTMENT & REPORT MODALS
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(5px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-container {
+  background: white;
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(20px);
+  transition: transform 0.25s ease;
+}
+
+.modal-overlay.active .modal-container {
+  transform: translateY(0);
+}
+
+.modal-header {
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  font-size: 1.3rem;
+  color: var(--primary-navy);
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+
+.modal-close-btn:hover {
+  color: var(--text-main);
+}
+
+.modal-body {
+  padding: 28px;
+}
+
+/* Footer */
+.site-footer {
+  background: #091e42;
+  color: #94a3b8;
+  padding: 70px 24px 30px;
+  margin-top: auto;
+}
+
+.footer-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-brand h2 {
+  color: white;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.footer-col h4 {
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 18px;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  font-size: 0.88rem;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.82rem;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .studio-layout-grid {
+    grid-template-columns: 1fr;
+  }
+  .studio-input-pane {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .dept-grid, .doctors-grid, .locations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.3rem;
+  }
+  .main-nav {
+    display: none;
+  }
+  .dept-grid, .doctors-grid, .locations-grid {
+    grid-template-columns: 1fr;
+  }
+  .patient-profile-row {
+    grid-template-columns: 1fr;
+  }
+  .body-region-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Emergency & Ticker Bar -->
+  <aside class="top-announcement" aria-label="Emergency and Wait Times Ticker">
+    <div class="top-announcement-inner">
+      <div class="er-ticker">
+        <span class="er-badge"><span class="pulse-dot"></span> 24/7 ER Wait: <strong id="er-wait-time">12 mins</strong></span>
+        <span class="urgent-care-badge"><span class="pulse-dot" style="background:#10b981;"></span> Urgent Care Wait: <strong id="urgent-wait-time">4 mins</strong></span>
+        <span style="color: #cbd5e1;">| Main Campus: 500 Aegis Boulevard</span>
+      </div>
+      <div class="er-hotline">
+        <a href="tel:911" class="hotline-link" style="color: #fca5a5;">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+          Emergency ER Hotline: 911 or (800) 555-CARE
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Site Navigation -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand-logo" aria-label="Aegis Health Medical Center Homepage">
+        <div class="logo-icon-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>AEGIS HEALTH</h1>
+          <span>Academic Medical Center</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="#diagnostics-engine" class="nav-link active">Home Diagnosing</a>
+        <a href="#specialties" class="nav-link">Specialties</a>
+        <a href="#doctors" class="nav-link">Find a Physician</a>
+        <a href="#locations" class="nav-link">Wait Times & ER</a>
+        <a href="#patient-portal" class="nav-link">Patient Portal</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn btn-secondary btn-sm" id="btn-open-portal">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          Sign In
+        </button>
+        <button class="btn btn-primary btn-sm" id="btn-quick-book">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Book Appointment
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Quick Diagnostic Hook -->
+  <section class="hero-section">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="badge-headline">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Clinical Intelligence & Triage System 3.0
+        </div>
+        <h1 class="hero-title">
+          World-Class Care, <span>Instant Diagnostic Triage</span> at Home.
+        </h1>
+        <p class="hero-subtitle">
+          Evaluate acute symptoms in real-time, determine appropriate urgency levels, and seamlessly connect with top board-certified physicians across 38 specialized departments.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#diagnostics-engine" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><activity><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></activity></svg>
+            Start Diagnostic Assessment
+          </a>
+          <a href="#doctors" class="btn btn-secondary btn-lg">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            Browse Specialists
+          </a>
+        </div>
+        <div class="hero-stats-row">
+          <div class="stat-item">
+            <h3>480+</h3>
+            <p>Board-Certified Doctors</p>
+          </div>
+          <div class="stat-item">
+            <h3>12 min</h3>
+            <p>Average ER Triage Time</p>
+          </div>
+          <div class="stat-item">
+            <h3>99.4%</h3>
+            <p>Quality Care Rating</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Fast-Search Card in Hero -->
+      <div class="hero-quick-check">
+        <div class="quick-check-header">
+          <div class="check-icon">
+            <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          </div>
+          <div>
+            <h2>What symptoms do you feel?</h2>
+            <p>Type below or select common symptoms for immediate triage</p>
+          </div>
+        </div>
+
+        <div class="quick-search-box">
+          <div class="search-input-wrap">
+            <svg class="search-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="quick-symptom-input" class="quick-symptom-input" placeholder="e.g. chest pain, severe headache, high fever...">
+          </div>
+        </div>
+
+        <div class="quick-tag-label">Frequent Clinical Searches:</div>
+        <div class="quick-tag-cloud" id="quick-tag-cloud">
+          <button class="quick-chip" data-symptom="chest_pain">ðŸš¨ Chest Pain</button>
+          <button class="quick-chip" data-symptom="shortness_of_breath">Shortness of Breath</button>
+          <button class="quick-chip" data-symptom="headache">Severe Headache</button>
+          <button class="quick-chip" data-symptom="abdominal_pain_sharp">Lower Right Belly Pain</button>
+          <button class="quick-chip" data-symptom="high_fever">High Fever (>101Â°F)</button>
+          <button class="quick-chip" data-symptom="nausea_vomiting">Persistent Vomiting</button>
+          <button class="quick-chip" data-symptom="calf_pain_swelling">Warm Swollen Calf</button>
+        </div>
+
+        <div class="quick-check-footer">
+          <span>ðŸ”’ HIPAA-Compliant & Anonymous</span>
+          <a href="#diagnostics-engine" class="btn btn-teal btn-sm" id="btn-hero-launch">Open Full Diagnostic Studio &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       MAIN HIGHLIGHT: HOME PAGE DIAGNOSTIC STUDIO
+       ========================================================================= -->
+  <section class="section-wrapper" id="diagnostics-engine">
+    <div class="section-head-center">
+      <span class="section-tag">Home Page Clinical Diagnostic Engine</span>
+      <h2 class="section-title">Interactive Symptom & Triage Evaluator</h2>
+      <p class="section-desc">
+        Select your anatomical region, report active symptoms, and calibrate severity. Our rule-based clinical engine screens for red-flag emergencies, computes differential match probabilities, and assigns care levels.
+      </p>
+    </div>
+
+    <div class="diagnostics-studio">
+      <!-- Studio Header Controls -->
+      <div class="studio-nav-header">
+        <div class="studio-title-wrap">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"></path></svg>
+          <h3 style="font-size: 1.15rem; font-weight: 700;">Aegis Triage Diagnostic Studio</h3>
+          <span class="studio-badge-ai">Live Clinical Engine</span>
+        </div>
+        <div class="studio-tabs">
+          <button class="studio-tab-btn active" data-tab="interactive" id="tab-interactive">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            Interactive Diagnoser
+          </button>
+          <button class="studio-tab-btn" data-tab="emergency-protocols" id="tab-emergency-guidelines">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            Emergency Red Flags
+          </button>
+        </div>
+      </div>
+
+      <!-- Studio 2-Column Split: Inputs (Left) & Real-Time Differential Output (Right) -->
+      <div class="studio-layout-grid">
+        
+        <!-- Left: Patient Parameters & Symptom Selection -->
+        <div class="studio-input-pane">
+          
+          <!-- Step 1: Patient Context & Medical History -->
+          <div class="pane-block">
+            <h4 class="block-title">
+              <span class="step-num">1</span> Patient Profile & Risk Factors
+            </h4>
+            <div class="patient-profile-row">
+              <div class="form-group">
+                <label for="select-age">Age Bracket</label>
+                <select id="select-age" class="select-control">
+                  <option value="child">Child / Adolescent (&lt; 18)</option>
+                  <option value="adult" selected>Adult (18 - 64 years)</option>
+                  <option value="senior">Senior Citizen (65+ years)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="select-sex">Biological Sex</label>
+                <select id="select-sex" class="select-control">
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                  <option value="other">Prefer not to say</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Known Pre-existing Medical Conditions:</label>
+              <div class="comorbidity-chips">
+                <label class="checkbox-pill">
+                  <input type="checkbox" name="comorbidity" value="hypertension">
+                  <span class="pill-content">Hypertension</span>
+                </label>
+                <label class="checkbox-pill">
+                  <input type="checkbox" name="comorbidity" value="diabetes">
+                  <span class="pill-content">Diabetes</span>
+                </label>
+                <label class="checkbox-pill">
+                  <input type="checkbox" name="comorbidity" value="asthma_copd">
+                  <span class="pill-content">Asthma / COPD</span>
+                </label>
+                <label class="checkbox-pill">
+                  <input type="checkbox" name="comorbidity" value="heart_disease">
+                  <span class="pill-content">Heart Disease</span>
+                </label>
+                <label class="checkbox-pill">
+                  <input type="checkbox" name="comorbidity" value="smoker">
+                  <span class="pill-content">Tobacco Smoker</span>
+                </label>
+                <label class="checkbox-pill">
+                  <input type="checkbox" name="comorbidity" value="pregnancy">
+                  <span class="pill-content">Pregnancy</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Anatomical Body Region -->
+          <div class="pane-block">
+            <h4 class="block-title">
+              <span class="step-num">2</span> Select Primary Body Region
+            </h4>
+            <div class="body-region-grid" id="region-selector-grid">
+              <!-- Dynamically populated or static body zones -->
+              <button class="region-btn active" data-region="chest">
+                <div class="region-icon">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg>
+                </div>
+                <span class="region-title">Chest & Heart</span>
+              </button>
+
+              <button class="region-btn" data-region="head_neck">
+                <div class="region-icon">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><path d="M12 9v4l2 2"></path></svg>
+                </div>
+                <span class="region-title">Head & Neck</span>
+              </button>
+
+              <button class="region-btn" data-region="abdomen">
+                <div class="region-icon">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"></rect><circle cx="12" cy="12" r="3"></circle></svg>
+                </div>
+                <span class="region-title">Abdomen & Gut</span>
+              </button>
+
+              <button class="region-btn" data-region="pelvic">
+                <div class="region-icon">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <span class="region-title">Pelvic & Flank</span>
+              </button>
+
+              <button class="region-btn" data-region="limbs">
+                <div class="region-icon">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="18" r="3"></circle><line x1="8.5" y1="8.5" x2="15.5" y2="15.5"></line></svg>
+                </div>
+                <span class="region-title">Limbs & Joints</span>
+              </button>
+
+              <button class="region-btn" data-region="general">
+                <div class="region-icon">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"></path></svg>
+                </div>
+                <span class="region-title">Systemic / Skin</span>
+              </button>
+            </div>
+
+            <!-- Symptom Filter Chips for Selected Region -->
+            <div class="symptom-picker-container">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                <label style="font-size:0.82rem; font-weight:700; color:#334155;">Reported Symptoms in Selected Region:</label>
+                <span style="font-size:0.75rem; color:#dc2626; font-weight:600;">Red marker = Critical Alert</span>
+              </div>
+              <div class="symptom-list-chips" id="region-symptoms-list">
+                <!-- Injected via diagnostics.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Severity, Duration & Active Symptoms Tray -->
+          <div class="pane-block">
+            <h4 class="block-title">
+              <span class="step-num">3</span> Pain Severity & Duration
+            </h4>
+            <div class="slider-group">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <label for="severity-slider" style="font-size:0.85rem; font-weight:600;">Discomfort / Severity Scale:</label>
+                <strong id="severity-display" style="font-size:1rem; color:var(--primary-blue);">5 / 10 (Moderate)</strong>
+              </div>
+              <input type="range" id="severity-slider" class="severity-slider" min="1" max="10" value="5">
+              <div class="slider-labels">
+                <span>1 Mild</span>
+                <span>4 Moderate</span>
+                <span>7 Severe</span>
+                <span>10 Emergency</span>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top:16px;">
+              <label for="select-duration">How long have these symptoms persisted?</label>
+              <select id="select-duration" class="select-control">
+                <option value="hours">Just started (Past few hours)</option>
+                <option value="days" selected>1 to 3 Days</option>
+                <option value="weeks">1 to 2 Weeks</option>
+                <option value="chronic">Over a month (Chronic)</option>
+              </select>
+            </div>
+
+            <!-- Active Selected Symptoms Tray -->
+            <div class="selected-tray" id="active-symptoms-tray">
+              <span class="tray-label">Active Symptoms:</span>
+              <div id="tray-chips-container" style="display:contents;">
+                <!-- Injected chips -->
+                <span style="font-size:0.82rem; color:#94a3b8; font-style:italic;">No symptoms selected yet. Pick from above or search.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Real-time Live Diagnostic Assessment & Recommendations -->
+        <div class="studio-output-pane" id="studio-output-pane">
+          
+          <!-- Emergency Red-Flag Warning Box (Dynamically shown) -->
+          <div class="emergency-alarm-card" id="emergency-alert-box" style="display: none;">
+            <div class="alarm-header">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              <h3 id="emergency-alert-title">CRITICAL RED-FLAG ALERT</h3>
+            </div>
+            <p class="alarm-text" id="emergency-alert-desc">
+              Your symptoms match an acute high-risk medical scenario requiring immediate clinical intervention. Do not wait for a scheduled office visit.
+            </p>
+            <div class="alarm-actions">
+              <a href="tel:911" class="btn btn-secondary btn-sm" style="color:#b91c1c; font-weight:800;">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+                Call 911 Immediately
+              </a>
+              <button class="btn btn-secondary btn-sm" id="btn-er-route" style="color:#1e293b;">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a8 8 0 00-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 00-8-8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Direct GPS to Aegis ER
+              </button>
+            </div>
+          </div>
+
+          <!-- Triage Tier Determination Card -->
+          <div class="triage-tier-card" id="triage-tier-card">
+            <div class="triage-badge-strip">
+              <span class="triage-status-badge badge-routine" id="triage-status-badge">Routine Consultation (Level 4)</span>
+              <span class="triage-wait-pill" id="triage-wait-estimate">Next opening: Today</span>
+            </div>
+            <h3 id="triage-recommendation-title">Initial Triage Impression</h3>
+            <p id="triage-recommendation-text">
+              Please select symptoms from the left panel to begin diagnostic analysis and view differential assessments.
+            </p>
+          </div>
+
+          <!-- Differential Diagnoses / Matched Probabilities -->
+          <div class="differential-box">
+            <h4>
+              <span>Differential Clinical Matches</span>
+              <small style="font-size:0.75rem; color:#64748b; font-weight:500;">Based on clinical algorithms</small>
+            </h4>
+            <div id="differential-matches-list">
+              <p style="font-size:0.85rem; color:#94a3b8; font-style:italic;">
+                No symptoms added. Choose symptoms above to compute likelihood percentages.
+              </p>
+            </div>
+          </div>
+
+          <!-- Recommended Specialist / Doctor at Hospital -->
+          <div class="specialist-recom-card" id="specialist-recom-card">
+            <div class="recom-head">Recommended Aegis Specialist</div>
+            <div class="doctor-mini-row" id="doctor-mini-content">
+              <div class="doc-info-cluster">
+                <div class="doc-mini-avatar" id="recom-doc-avatar">ER</div>
+                <div>
+                  <div class="doc-name" id="recom-doc-name">Dr. Evelyn Reed, MD</div>
+                  <div class="doc-sub" id="recom-doc-specialty">Cardiology & Heart Institute</div>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-sm" id="btn-recom-book">Book Consult</button>
+            </div>
+          </div>
+
+          <!-- Diagnostic Action Tools -->
+          <div class="studio-action-row">
+            <button class="btn btn-secondary btn-sm" id="btn-print-report" style="width:100%;">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
+              Print / Save Clinical Report for Physician
+            </button>
+            <button class="btn btn-teal btn-sm" id="btn-reset-diagnostics">
+              Reset
+            </button>
+          </div>
+
+          <!-- Strict Medical Disclaimer -->
+          <div class="clinical-disclaimer">
+            <strong>Medical Notice:</strong> This interactive home page diagnostic assessment is an AI-assisted clinical decision-support and triage tool for informational triage purposes. It does not establish a formal physician-patient relationship or constitute a definitive medical diagnosis. If experiencing acute emergency symptoms, call 911 immediately.
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       HOSPITAL SPECIALTIES & CENTERS OF EXCELLENCE
+       ========================================================================= -->
+  <section class="section-wrapper" id="specialties" style="background:#ffffff; border-top:1px solid #e2e8f0; border-bottom:1px solid #e2e8f0;">
+    <div class="section-head-center">
+      <span class="section-tag">Centers of Excellence</span>
+      <h2 class="section-title">Specialized Clinical Departments</h2>
+      <p class="section-desc">
+        Integrated multidisciplinary medicine combining research, advanced robotic surgery, and personalized therapeutics.
+      </p>
+    </div>
+
+    <div class="dept-grid">
+      <div class="dept-card">
+        <div class="dept-icon">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg>
+        </div>
+        <h3>Cardiovascular & Heart Institute</h3>
+        <p>Comprehensive transcatheter valves, electrophysiology, coronary stenting, and congestive heart failure programs.</p>
+        <div class="dept-stats">
+          <span>Door-to-Balloon: <strong>48 mins</strong></span>
+          <span>Surgeons: <strong>24 Boarded</strong></span>
+        </div>
+      </div>
+
+      <div class="dept-card">
+        <div class="dept-icon">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><path d="M12 9v4l2 2"></path></svg>
+        </div>
+        <h3>Neuroscience & Comprehensive Stroke</h3>
+        <p>State-certified Level 1 Stroke Center featuring biplane neuro-angiography, epilepsy monitoring, and minimally invasive spine surgery.</p>
+        <div class="dept-stats">
+          <span>Stroke Triage: <strong>14 mins</strong></span>
+          <span>Neuro-ICU: <strong>32 Beds</strong></span>
+        </div>
+      </div>
+
+      <div class="dept-card">
+        <div class="dept-icon">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"></path></svg>
+        </div>
+        <h3>Pulmonary & Critical Care Medicine</h3>
+        <p>Advanced bronchial thermoplasty, asthma biologics, interventional bronchoscopy, and specialized post-viral pulmonary recovery.</p>
+        <div class="dept-stats">
+          <span>Critical Care Units: <strong>4</strong></span>
+          <span>Same-Day Clinic: <strong>Yes</strong></span>
+        </div>
+      </div>
+
+      <div class="dept-card">
+        <div class="dept-icon">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="18" r="3"></circle><line x1="8.5" y1="8.5" x2="15.5" y2="15.5"></line></svg>
+        </div>
+        <h3>Orthopedics & Joint Reconstruction</h3>
+        <p>Robotic Mako-assisted knee and hip replacements, sports medicine, arthroscopy, and complex trauma bone repair.</p>
+        <div class="dept-stats">
+          <span>Robotic Precision: <strong>99.8%</strong></span>
+          <span>Outpatient Rehab: <strong>On-Site</strong></span>
+        </div>
+      </div>
+
+      <div class="dept-card">
+        <div class="dept-icon">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"></rect><circle cx="12" cy="12" r="3"></circle></svg>
+        </div>
+        <h3>Gastroenterology & Digestive Health</h3>
+        <p>High-definition endoscopic ultrasound, IBD biologic infusion center, advanced hepatology, and acid reflux motility clinic.</p>
+        <div class="dept-stats">
+          <span>Endoscopy Suites: <strong>8</strong></span>
+          <span>Capsule Scope: <strong>Available</strong></span>
+        </div>
+      </div>
+
+      <div class="dept-card">
+        <div class="dept-icon" style="background:#fee2e2; color:#dc2626;">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path></svg>
+        </div>
+        <h3>24/7 Level-1 Emergency & Trauma</h3>
+        <p>Helipad-equipped adult and pediatric emergency resuscitation pavilions with immediate on-site cardiothoracic and neurosurgical backup.</p>
+        <div class="dept-stats">
+          <span>Trauma Bays: <strong>16</strong></span>
+          <span>Average Door-to-MD: <strong>12 mins</strong></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       DOCTOR DIRECTORY & SCHEDULE APPOINTMENT
+       ========================================================================= -->
+  <section class="section-wrapper" id="doctors">
+    <div class="section-head-center">
+      <span class="section-tag">Find A Physician</span>
+      <h2 class="section-title">Board-Certified Clinical Specialists</h2>
+      <p class="section-desc">
+        Meet our distinguished physicians, read verified patient reviews, and schedule an in-person or virtual consultation.
+      </p>
+    </div>
+
+    <div class="doctors-grid" id="doctors-grid-container">
+      <!-- Injected via JavaScript from MEDICAL_DATABASE.doctors -->
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       CAMPUS LOCATIONS & LIVE WAIT TIMES
+       ========================================================================= -->
+  <section class="section-wrapper" id="locations" style="background:#ffffff; border-top:1px solid #e2e8f0;">
+    <div class="section-head-center">
+      <span class="section-tag">Campus & Emergency Readiness</span>
+      <h2 class="section-title">Live Facility Status & Wait Times</h2>
+      <p class="section-desc">
+        Real-time telemetry of triage queues across our hospital network to ensure zero delay in acute care.
+      </p>
+    </div>
+
+    <div class="locations-grid">
+      <div class="location-card">
+        <div class="loc-head">
+          <div>
+            <h3>Main Hospital & Level 1 Trauma</h3>
+            <p style="font-size:0.85rem; color:#64748b;">500 Aegis Boulevard, Metro City</p>
+          </div>
+          <span class="loc-badge level1">Level 1 ER</span>
+        </div>
+        <div class="loc-wait-display">
+          <div>
+            <div style="font-size:0.75rem; color:#64748b; font-weight:700;">CURRENT ER WAIT</div>
+            <div class="loc-wait-val" id="loc-wait-main">12 mins</div>
+          </div>
+          <span class="pulse-dot"></span>
+        </div>
+        <p style="font-size:0.85rem; color:#475569; margin-bottom:16px;">Open 24/7/365. Full surgical teams and cath-labs on standby.</p>
+        <button class="btn btn-secondary btn-sm" style="width:100%;" onclick="openDirections('500 Aegis Boulevard')">Get GPS Navigation</button>
+      </div>
+
+      <div class="location-card">
+        <div class="loc-head">
+          <div>
+            <h3>West Valley Urgent Care & Outpatient</h3>
+            <p style="font-size:0.85rem; color:#64748b;">1420 West Valley Parkway</p>
+          </div>
+          <span class="loc-badge" style="background:#fef3c7; color:#d97706;">Urgent Care</span>
+        </div>
+        <div class="loc-wait-display">
+          <div>
+            <div style="font-size:0.75rem; color:#64748b; font-weight:700;">URGENT CARE WAIT</div>
+            <div class="loc-wait-val" id="loc-wait-west">4 mins</div>
+          </div>
+          <span class="pulse-dot" style="background:#10b981;"></span>
+        </div>
+        <p style="font-size:0.85rem; color:#475569; margin-bottom:16px;">Open Daily 7 AM - 11 PM. On-site digital X-ray and stat labs.</p>
+        <button class="btn btn-secondary btn-sm" style="width:100%;" onclick="openDirections('1420 West Valley Parkway')">Get GPS Navigation</button>
+      </div>
+
+      <div class="location-card">
+        <div class="loc-head">
+          <div>
+            <h3>North Shore Children's & Family Center</h3>
+            <p style="font-size:0.85rem; color:#64748b;">880 Harbor Ridge Road</p>
+          </div>
+          <span class="loc-badge" style="background:#e0f2fe; color:#0284c7;">Pediatric Pavilion</span>
+        </div>
+        <div class="loc-wait-display">
+          <div>
+            <div style="font-size:0.75rem; color:#64748b; font-weight:700;">PEDIATRIC TRIAGE</div>
+            <div class="loc-wait-val" id="loc-wait-north">8 mins</div>
+          </div>
+          <span class="pulse-dot" style="background:#0284c7;"></span>
+        </div>
+        <p style="font-size:0.85rem; color:#475569; margin-bottom:16px;">Open 24/7. Specialized child-life specialists and pediatric emergency suites.</p>
+        <button class="btn btn-secondary btn-sm" style="width:100%;" onclick="openDirections('880 Harbor Ridge Road')">Get GPS Navigation</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       APPOINTMENT BOOKING MODAL
+       ========================================================================= -->
+  <div class="modal-overlay" id="appointment-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>Schedule Clinic Consultation</h3>
+        <button class="modal-close-btn" id="modal-close-booking">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="booking-form">
+          <div class="pane-block">
+            <h4 style="font-size:0.95rem; margin-bottom:12px;">1. Specialty & Physician</h4>
+            <div class="patient-profile-row">
+              <div class="form-group">
+                <label>Department</label>
+                <select id="modal-select-dept" class="select-control">
+                  <option value="Cardiology & Heart Institute">Cardiology & Heart Institute</option>
+                  <option value="Pulmonology & Respiratory Medicine">Pulmonology & Respiratory Medicine</option>
+                  <option value="Neurology & Headache Center">Neurology & Headache Center</option>
+                  <option value="General Surgery & Acute Care">General Surgery & Acute Care</option>
+                  <option value="Gastroenterology & Digestive Health">Gastroenterology & Digestive Health</option>
+                  <option value="Orthopedics & Sports Medicine">Orthopedics & Sports Medicine</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Physician</label>
+                <select id="modal-select-doc" class="select-control">
+                  <!-- Populated dynamically -->
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="pane-block">
+            <h4 style="font-size:0.95rem; margin-bottom:12px;">2. Date & Time Slot</h4>
+            <div class="patient-profile-row">
+              <div class="form-group">
+                <label>Preferred Date</label>
+                <input type="date" id="booking-date" class="input-control" required>
+              </div>
+              <div class="form-group">
+                <label>Available Time Slot</label>
+                <select id="booking-time" class="select-control">
+                  <option>09:30 AM (Morning)</option>
+                  <option>11:15 AM (Morning)</option>
+                  <option selected>02:30 PM (Afternoon)</option>
+                  <option>04:00 PM (Late Afternoon)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="pane-block">
+            <h4 style="font-size:0.95rem; margin-bottom:12px;">3. Patient Information</h4>
+            <div class="patient-profile-row">
+              <div class="form-group">
+                <label>Full Legal Name</label>
+                <input type="text" id="patient-name" class="input-control" placeholder="e.g. Eleanor Davis" required>
+              </div>
+              <div class="form-group">
+                <label>Contact Phone</label>
+                <input type="tel" id="patient-phone" class="input-control" placeholder="(555) 012-3456" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Reason for Visit / Symptoms (Auto-synced with Diagnostic tool)</label>
+              <textarea id="patient-symptom-note" class="input-control" rows="2" placeholder="Describe symptoms or reasons..."></textarea>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-cancel-booking">Cancel</button>
+            <button type="submit" class="btn btn-primary btn-sm">Confirm & Reserve Slot</button>
+          </div>
+        </form>
+
+        <div id="booking-success-box" style="display:none; text-align:center; padding:20px;">
+          <div style="width:60px; height:60px; background:#dcfce7; color:#16a34a; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; margin-bottom:16px;">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h3 style="color:#166534; margin-bottom:8px;">Appointment Confirmed!</h3>
+          <p id="booking-confirmation-details" style="font-size:0.92rem; color:#334155; margin-bottom:20px; line-height:1.5;">
+            Your visit has been reserved. A confirmation SMS with directions and clinical intake forms has been sent.
+          </p>
+          <button class="btn btn-secondary btn-sm" id="btn-close-success">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       CLINICAL REPORT / SUMMARY PRINT MODAL
+       ========================================================================= -->
+  <div class="modal-overlay" id="report-modal">
+    <div class="modal-container" style="max-width: 760px;">
+      <div class="modal-header">
+        <h3>Patient Clinical Triage Report</h3>
+        <button class="modal-close-btn" id="modal-close-report">&times;</button>
+      </div>
+      <div class="modal-body" id="printable-report-content" style="font-size:0.92rem; line-height:1.6;">
+        <!-- Injected report summary -->
+      </div>
+      <div style="padding: 16px 28px; background:#f8fafc; border-top:1px solid #e2e8f0; display:flex; justify-content:flex-end; gap:10px;">
+        <button class="btn btn-secondary btn-sm" id="btn-modal-close-report-footer">Close</button>
+        <button class="btn btn-primary btn-sm" onclick="window.print()">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
+          Print / Export PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <h2>AEGIS HEALTH</h2>
+          <p style="font-size:0.88rem; line-height:1.6; margin-bottom:16px;">
+            A premier non-profit academic medical system committed to clinical precision, rapid triage, and human-centered healing.
+          </p>
+          <div style="display:flex; gap:10px; font-size:0.8rem; color:#cbd5e1;">
+            <span>JCI Accredited</span> &bull; <span>Magnet Hospital</span> &bull; <span>Level 1 Trauma</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Clinical Services</h4>
+          <ul class="footer-links">
+            <li><a href="#diagnostics-engine">Home Page Diagnosing</a></li>
+            <li><a href="#specialties">Cardiovascular Institute</a></li>
+            <li><a href="#specialties">Neurology & Stroke</a></li>
+            <li><a href="#specialties">Cancer Center</a></li>
+            <li><a href="#specialties">Orthopedics</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Patient Resources</h4>
+          <ul class="footer-links">
+            <li><a href="#patient-portal">Patient Portal (MyChart)</a></li>
+            <li><a href="#doctors">Physician Directory</a></li>
+            <li><a href="#locations">Live ER Wait Times</a></li>
+            <li><a href="#">Financial Assistance</a></li>
+            <li><a href="#">Medical Records Request</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Emergency Access</h4>
+          <p style="font-size:0.88rem; margin-bottom:12px;">In case of life-threatening emergency, call 911 immediately.</p>
+          <div style="background:rgba(255,255,255,0.08); padding:14px; border-radius:8px;">
+            <div style="font-size:0.75rem; text-transform:uppercase; color:#38bdf8; font-weight:700;">24/7 Patient Helpline</div>
+            <strong style="color:white; font-size:1.1rem;">(800) 555-CARE</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Aegis Health Academic Medical Center. All rights reserved.</div>
+        <div style="display:flex; gap:16px;">
+          <a href="#">Privacy Practices (HIPAA)</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Notice of Non-Discrimination</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+/**
+ * Aegis Health - Clinical Diagnostics & Triage Engine
+ * Rule-based differential diagnostic matrix with emergency red-flag detection,
+ * anatomical region matching, and care-level triage stratification.
+ */
+
+const MEDICAL_DATABASE = {
+  // Body regions for interactive anatomical map
+  bodyRegions: [
+    { id: 'head_neck', label: 'Head & Neck', icon: 'brain', commonSymptoms: ['headache', 'dizziness', 'sore_throat', 'vision_changes', 'facial_numbness', 'stiff_neck', 'ear_pain'] },
+    { id: 'chest', label: 'Chest & Respiratory', icon: 'heart-pulse', commonSymptoms: ['chest_pain', 'shortness_of_breath', 'palpitations', 'cough_dry', 'cough_productive', 'wheezing', 'chest_tightness'] },
+    { id: 'abdomen', label: 'Abdomen & Gastrointestinal', icon: 'activity', commonSymptoms: ['abdominal_pain_sharp', 'abdominal_cramping', 'nausea_vomiting', 'diarrhea', 'acid_reflux', 'bloating', 'loss_of_appetite'] },
+    { id: 'pelvic', label: 'Pelvic & Urinary', icon: 'shield-alert', commonSymptoms: ['dysuria', 'flank_pain', 'frequent_urination', 'pelvic_pain', 'hematuria'] },
+    { id: 'limbs', label: 'Limbs & Musculoskeletal', icon: 'bone', commonSymptoms: ['joint_swelling', 'joint_pain', 'muscle_ache', 'limb_weakness', 'calf_pain_swelling', 'numbness_tingling'] },
+    { id: 'general', label: 'Systemic / Skin / General', icon: 'thermometer', commonSymptoms: ['high_fever', 'chills_sweating', 'fatigue_severe', 'rash_spreading', 'unexplained_weight_loss', 'fainting_syncope'] }
+  ],
+
+  // Symptom dictionary with metadata
+  symptoms: {
+    // Head / Neuro / ENT
+    headache: { name: 'Headache (General/Pounding)', category: 'head_neck', severityWeight: 4 },
+    severe_thunderclap_headache: { name: 'Sudden "Worst Headache of Life" (Thunderclap)', category: 'head_neck', severityWeight: 10, isEmergency: true },
+    facial_numbness: { name: 'Facial Drooping or Asymmetry', category: 'head_neck', severityWeight: 10, isEmergency: true },
+    slurred_speech: { name: 'Slurred Speech / Difficulty Speaking', category: 'head_neck', severityWeight: 10, isEmergency: true },
+    stiff_neck: { name: 'Severe Stiff Neck with Fever', category: 'head_neck', severityWeight: 9, isEmergency: true },
+    dizziness: { name: 'Dizziness or Vertigo', category: 'head_neck', severityWeight: 5 },
+    vision_changes: { name: 'Sudden Vision Loss / Double Vision', category: 'head_neck', severityWeight: 8, isEmergency: true },
+    sore_throat: { name: 'Sore Throat / Painful Swallowing', category: 'head_neck', severityWeight: 3 },
+    ear_pain: { name: 'Earache or Pressure', category: 'head_neck', severityWeight: 3 },
+
+    // Chest / Cardio / Pulm
+    chest_pain: { name: 'Chest Pain or Crushing Pressure', category: 'chest', severityWeight: 9, isEmergency: true },
+    chest_tightness: { name: 'Chest Tightness with Exertion', category: 'chest', severityWeight: 7 },
+    radiating_arm_pain: { name: 'Pain Radiating to Left Arm, Jaw or Back', category: 'chest', severityWeight: 9, isEmergency: true },
+    shortness_of_breath: { name: 'Shortness of Breath / Air Hunger', category: 'chest', severityWeight: 8 },
+    palpitations: { name: 'Rapid or Irregular Heartbeat (Palpitations)', category: 'chest', severityWeight: 5 },
+    wheezing: { name: 'Wheezing or Whistling Breath', category: 'chest', severityWeight: 6 },
+    cough_dry: { name: 'Persistent Dry Cough', category: 'chest', severityWeight: 3 },
+    cough_productive: { name: 'Cough with Phlegm/Mucus', category: 'chest', severityWeight: 4 },
+    hemoptysis: { name: 'Coughing up Blood', category: 'chest', severityWeight: 9, isEmergency: true },
+
+    // Abdomen / GI
+    abdominal_pain_sharp: { name: 'Sharp Localized Abdominal Pain (Lower Right)', category: 'abdomen', severityWeight: 8 },
+    abdominal_cramping: { name: 'Diffuse Abdominal Cramping', category: 'abdomen', severityWeight: 4 },
+    nausea_vomiting: { name: 'Nausea and Persistent Vomiting', category: 'abdomen', severityWeight: 5 },
+    diarrhea: { name: 'Watery or Frequent Diarrhea', category: 'abdomen', severityWeight: 4 },
+    acid_reflux: { name: 'Heartburn / Burning Chest Pain after meals', category: 'abdomen', severityWeight: 3 },
+    bloating: { name: 'Abdominal Distension & Bloating', category: 'abdomen', severityWeight: 2 },
+    loss_of_appetite: { name: 'Loss of Appetite', category: 'abdomen', severityWeight: 3 },
+
+    // Urinary / Pelvic
+    dysuria: { name: 'Burning or Pain During Urination', category: 'pelvic', severityWeight: 4 },
+    flank_pain: { name: 'Severe Back/Side Flank Pain Spasms', category: 'pelvic', severityWeight: 7 },
+    frequent_urination: { name: 'Urgent and Frequent Urination', category: 'pelvic', severityWeight: 3 },
+    hematuria: { name: 'Blood in Urine (Pink/Reddish)', category: 'pelvic', severityWeight: 7 },
+    pelvic_pain: { name: 'Lower Pelvic Pressure / Dull Ache', category: 'pelvic', severityWeight: 5 },
+
+    // Limbs / Musculoskeletal
+    joint_swelling: { name: 'Joint Swelling, Heat, or Redness', category: 'limbs', severityWeight: 5 },
+    joint_pain: { name: 'Aching or Stiff Joints', category: 'limbs', severityWeight: 4 },
+    muscle_ache: { name: 'Generalized Muscle Aches (Myalgia)', category: 'limbs', severityWeight: 3 },
+    limb_weakness: { name: 'Sudden Weakness in One Arm or Leg', category: 'limbs', severityWeight: 10, isEmergency: true },
+    calf_pain_swelling: { name: 'One-Sided Warm, Swollen Calf Pain', category: 'limbs', severityWeight: 8 },
+    numbness_tingling: { name: 'Pins and Needles / Numbness in Hands or Feet', category: 'limbs', severityWeight: 4 },
+
+    // Systemic / Skin
+    high_fever: { name: 'High Fever (>101Â°F / 38.3Â°C)', category: 'general', severityWeight: 6 },
+    chills_sweating: { name: 'Shaking Chills or Night Sweats', category: 'general', severityWeight: 5 },
+    fatigue_severe: { name: 'Severe Exhaustion / Incapacitating Fatigue', category: 'general', severityWeight: 4 },
+    rash_spreading: { name: 'Rapidly Spreading Skin Rash or Hives', category: 'general', severityWeight: 6 },
+    anaphylaxis_swelling: { name: 'Lip, Tongue, or Throat Swelling', category: 'general', severityWeight: 10, isEmergency: true },
+    fainting_syncope: { name: 'Passing Out / Loss of Consciousness', category: 'general', severityWeight: 9, isEmergency: true },
+    unexplained_weight_loss: { name: 'Unexplained Rapid Weight Loss', category: 'general', severityWeight: 6 }
+  },
+
+  // Red-flag emergency triggers
+  emergencyProtocols: [
+    {
+      id: 'stroke_alert',
+      name: 'Acute Stroke Alert (FAST Protocol)',
+      triggers: ['facial_numbness', 'slurred_speech', 'limb_weakness'],
+      requiredMatches: 1,
+      guidance: 'Symptoms suggest potential cerebral ischemia or hemorrhagic stroke. Immediate thrombolytic window is critical within 3-4.5 hours.',
+      action: 'Call 911 / Go to Nearest Comprehensive Stroke Center Immediately'
+    },
+    {
+      id: 'cardiac_alert',
+      name: 'Acute Coronary Syndrome (Possible Heart Attack)',
+      triggers: ['chest_pain', 'radiating_arm_pain', 'shortness_of_breath'],
+      requiredMatches: 2,
+      guidance: 'Combination of crushing chest pain radiating to arm/jaw with respiratory compromise indicates high cardiac risk.',
+      action: 'Do NOT drive yourself. Call 911 or Dispatch Emergency Cardiac Team immediately.'
+    },
+    {
+      id: 'anaphylaxis_alert',
+      name: 'Severe Anaphylactic Reaction',
+      triggers: ['anaphylaxis_swelling', 'shortness_of_breath', 'wheezing', 'rash_spreading'],
+      requiredMatches: 2,
+      guidance: 'Airway compromise and acute allergic cascade. Use auto-injector (EpiPen) if available and summon EMS.',
+      action: 'Administer Epinephrine if prescribed and call 911 immediately.'
+    },
+    {
+      id: 'meningitis_alert',
+      name: 'Acute Meningismus / CNS Infection Alert',
+      triggers: ['stiff_neck', 'high_fever', 'severe_thunderclap_headache'],
+      requiredMatches: 2,
+      guidance: 'Fever accompanied by nuchal rigidity and severe cephalalgia indicates urgent neurological infection risk.',
+      action: 'Proceed immediately to Emergency Department for lumbar puncture evaluation.'
+    },
+    {
+      id: 'dvt_pe_alert',
+      name: 'Suspected Deep Vein Thrombosis / Pulmonary Embolism',
+      triggers: ['calf_pain_swelling', 'shortness_of_breath', 'chest_pain'],
+      requiredMatches: 2,
+      guidance: 'Asymmetrical leg swelling coupled with dyspnea suggests venous thromboembolism.',
+      action: 'Immediate Emergency Ultrasound and D-Dimer Triage required.'
+    }
+  ],
+
+  // Conditions database for differential diagnosis
+  conditions: [
+    {
+      id: 'cad_acs',
+      name: 'Acute Coronary Syndrome / Angina',
+      department: 'Cardiology & Heart Institute',
+      doctorSpecialty: 'Cardiologist',
+      urgency: 'emergency',
+      urgencyLabel: 'Level 1: Emergency Department',
+      color: '#dc2626',
+      primarySymptoms: ['chest_pain', 'radiating_arm_pain', 'shortness_of_breath', 'chest_tightness'],
+      secondarySymptoms: ['palpitations', 'nausea_vomiting', 'fatigue_severe'],
+      riskModifiers: { 'hypertension': 15, 'heart_disease': 25, 'age_senior': 20, 'smoker': 15, 'diabetes': 15 },
+      description: 'Insufficient blood supply to myocardium, potentially indicating myocardial infarction or unstable angina.',
+      recommendedAction: 'Immediate triage via 12-lead ECG and serial cardiac troponins in the Emergency Department.'
+    },
+    {
+      id: 'gerd',
+      name: 'Gastroesophageal Reflux Disease (Acid Reflux / GERD)',
+      department: 'Gastroenterology & Digestive Health',
+      doctorSpecialty: 'Gastroenterologist',
+      urgency: 'routine',
+      urgencyLabel: 'Level 4: Outpatient / Primary Care',
+      color: '#0284c7',
+      primarySymptoms: ['acid_reflux', 'chest_tightness', 'nausea_vomiting'],
+      secondarySymptoms: ['cough_dry', 'sore_throat', 'bloating'],
+      riskModifiers: { 'age_adult': 5 },
+      description: 'Stomach acid backflow into the esophagus causing substernal burning sensations often mimicking chest discomfort.',
+      recommendedAction: 'Dietary adjustments, H2 blockers or PPI therapy, outpatient gastroenterology evaluation.'
+    },
+    {
+      id: 'bronchitis_pneumonia',
+      name: 'Acute Lower Respiratory Tract Infection (Bronchitis / Pneumonia)',
+      department: 'Pulmonology & Respiratory Medicine',
+      doctorSpecialty: 'Pulmonologist',
+      urgency: 'urgent',
+      urgencyLabel: 'Level 2: Urgent Care / Same-Day Clinic',
+      color: '#ea580c',
+      primarySymptoms: ['cough_productive', 'shortness_of_breath', 'high_fever'],
+      secondarySymptoms: ['chills_sweating', 'chest_tightness', 'fatigue_severe', 'wheezing'],
+      riskModifiers: { 'asthma_copd': 25, 'smoker': 15, 'age_senior': 20 },
+      description: 'Inflammatory consolidation of pulmonary parenchyma or bronchial airways caused by viral or bacterial pathogens.',
+      recommendedAction: 'Chest radiograph (X-ray), pulse oximetry, sputum culture, and appropriate antimicrobial or supportive therapy.'
+    },
+    {
+      id: 'asthma_flare',
+      name: 'Asthma Exacerbation / Bronchospasm',
+      department: 'Pulmonology & Allergy Institute',
+      doctorSpecialty: 'Pulmonologist / Allergist',
+      urgency: 'urgent',
+      urgencyLabel: 'Level 2: Urgent Care / Emergency if Severe',
+      color: '#ea580c',
+      primarySymptoms: ['wheezing', 'shortness_of_breath', 'chest_tightness', 'cough_dry'],
+      secondarySymptoms: ['fatigue_severe'],
+      riskModifiers: { 'asthma_copd': 35 },
+      description: 'Reversible airway obstruction caused by hyperreactivity, bronchial edema, and smooth muscle bronchoconstriction.',
+      recommendedAction: 'Nebulized beta-agonists (Albuterol), oral corticosteroids, and peak expiratory flow measurement.'
+    },
+    {
+      id: 'appendicitis',
+      name: 'Acute Appendicitis',
+      department: 'General Surgery & Acute Care',
+      doctorSpecialty: 'General Surgeon',
+      urgency: 'emergency',
+      urgencyLabel: 'Level 1: Emergency Department',
+      color: '#dc2626',
+      primarySymptoms: ['abdominal_pain_sharp', 'nausea_vomiting', 'loss_of_appetite'],
+      secondarySymptoms: ['high_fever', 'abdominal_cramping'],
+      riskModifiers: { 'age_child': 15, 'age_adult': 10 },
+      description: 'Inflammation of vermiform appendix requiring prompt surgical evaluation to prevent perforation and peritonitis.',
+      recommendedAction: 'Emergency ultrasound/CT abdomen, surgical consultation for laparoscopic appendectomy.'
+    },
+    {
+      id: 'gastroenteritis',
+      name: 'Acute Viral / Bacterial Gastroenteritis ("Stomach Flu")',
+      department: 'Internal Medicine & Urgent Care',
+      doctorSpecialty: 'Internal Medicine Physician',
+      urgency: 'urgent',
+      urgencyLabel: 'Level 3: Urgent Care / Telehealth',
+      color: '#0d9488',
+      primarySymptoms: ['nausea_vomiting', 'diarrhea', 'abdominal_cramping'],
+      secondarySymptoms: ['high_fever', 'chills_sweating', 'fatigue_severe', 'loss_of_appetite'],
+      riskModifiers: {},
+      description: 'Inflammation of gastrointestinal tract causing vomiting and osmotic or secretory diarrhea with risk of dehydration.',
+      recommendedAction: 'Oral or intravenous rehydration solution, electrolyte monitoring, and antiemetic therapy.'
+    },
+    {
+      id: 'migraine',
+      name: 'Migraine with or without Aura',
+      department: 'Neurology & Headache Center',
+      doctorSpecialty: 'Neurologist',
+      urgency: 'routine',
+      urgencyLabel: 'Level 3: Outpatient Neurology',
+      color: '#0284c7',
+      primarySymptoms: ['headache', 'nausea_vomiting', 'vision_changes'],
+      secondarySymptoms: ['dizziness', 'fatigue_severe'],
+      riskModifiers: { 'age_adult': 10 },
+      description: 'Neurovascular disorder presenting with unilateral or throbbing hemicranial pain, photophobia, and sensory sensitizations.',
+      recommendedAction: 'Triptan abortive medications, dark room rest, prophylactic neuro-pharmacotherapy, lifestyle trigger tracking.'
+    },
+    {
+      id: 'uti_pyelonephritis',
+      name: 'Urinary Tract Infection / Pyelonephritis',
+      department: 'Urology & Womenâ€™s Health',
+      doctorSpecialty: 'Urologist / Nephrologist',
+      urgency: 'urgent',
+      urgencyLabel: 'Level 2: Urgent Care (Prompt Antibiotics)',
+      color: '#ea580c',
+      primarySymptoms: ['dysuria', 'frequent_urination', 'pelvic_pain'],
+      secondarySymptoms: ['flank_pain', 'high_fever', 'hematuria', 'chills_sweating'],
+      riskModifiers: { 'pregnancy': 20, 'diabetes': 15 },
+      description: 'Bacterial colonization of lower or upper urinary tract; flank pain indicates upper renal ascent (pyelonephritis).',
+      recommendedAction: 'Urinalysis with microscopic sediment, urine culture, empiric antibiotic therapy, renal ultrasound if flank pain present.'
+    },
+    {
+      id: 'nephrolithiasis',
+      name: 'Nephrolithiasis (Renal Calculi / Kidney Stones)',
+      department: 'Urology & Kidney Center',
+      doctorSpecialty: 'Urologist',
+      urgency: 'urgent',
+      urgencyLabel: 'Level 2: Urgent Care / ER for Severe Pain',
+      color: '#ea580c',
+      primarySymptoms: ['flank_pain', 'hematuria', 'nausea_vomiting'],
+      secondarySymptoms: ['dysuria', 'frequent_urination'],
+      riskModifiers: { 'age_adult': 10 },
+      description: 'Mineral crystal deposition in renal pelvis migrating down ureters causing severe colicky flank spasms.',
+      recommendedAction: 'Non-contrast helical CT scan, ketorolac/NSAID analgesia, hydration, alpha-blocker therapy or lithotripsy.'
+    },
+    {
+      id: 'strep_pharyngitis',
+      name: 'Streptococcal Pharyngitis / Viral Tonsillitis',
+      department: 'Otolaryngology (ENT) & Primary Care',
+      doctorSpecialty: 'ENT Specialist / Family Medicine',
+      urgency: 'routine',
+      urgencyLabel: 'Level 3: Outpatient / Same-Day Clinic',
+      color: '#0284c7',
+      primarySymptoms: ['sore_throat', 'high_fever'],
+      secondarySymptoms: ['headache', 'fatigue_severe', 'chills_sweating', 'loss_of_appetite'],
+      riskModifiers: { 'age_child': 20 },
+      description: 'Group A Streptococcus or respiratory viral infection manifesting with palatine tonsil inflammation and odynophagia.',
+      recommendedAction: 'Rapid antigen detection test (RADT), throat culture, amoxicillin/penicillin if bacterial origin confirmed.'
+    },
+    {
+      id: 'dvt',
+      name: 'Deep Vein Thrombosis (DVT)',
+      department: 'Vascular Medicine & Hematology',
+      doctorSpecialty: 'Vascular Surgeon / Hematologist',
+      urgency: 'emergency',
+      urgencyLabel: 'Level 1: Emergency / Urgent Vascular Clinic',
+      color: '#dc2626',
+      primarySymptoms: ['calf_pain_swelling'],
+      secondarySymptoms: ['shortness_of_breath', 'chest_pain'],
+      riskModifiers: { 'age_senior': 15, 'smoker': 15, 'pregnancy': 20 },
+      description: 'Thrombus formation within deep veins of lower extremities carrying risk of fatal pulmonary embolization.',
+      recommendedAction: 'Duplex compression ultrasonography, D-dimer assay, low molecular weight heparin or DOAC anticoagulation.'
+    },
+    {
+      id: 'influenza_covid',
+      name: 'Systemic Viral Syndrome (Influenza / COVID-19)',
+      department: 'Infectious Disease & Primary Care',
+      doctorSpecialty: 'Infectious Disease Specialist',
+      urgency: 'routine',
+      urgencyLabel: 'Level 3: Telehealth / Primary Care',
+      color: '#0284c7',
+      primarySymptoms: ['high_fever', 'chills_sweating', 'fatigue_severe', 'muscle_ache'],
+      secondarySymptoms: ['cough_dry', 'headache', 'sore_throat'],
+      riskModifiers: { 'age_senior': 15, 'asthma_copd': 15, 'immunocompromised': 25 },
+      description: 'Acute systemic viral infection characterized by rapid onset constitutional symptoms, myalgia, and pyrexia.',
+      recommendedAction: 'Multiplex PCR viral panel, symptomatic supportive care, antiviral agents (Oseltamivir / Paxlovid) within 48h window.'
+    },
+    {
+      id: 'osteoarthritis_sprain',
+      name: 'Musculoskeletal Strain / Degenerative Arthropathy',
+      department: 'Orthopedics & Sports Medicine',
+      doctorSpecialty: 'Orthopedic Surgeon / Physiatrist',
+      urgency: 'routine',
+      urgencyLabel: 'Level 4: Outpatient Orthopedics',
+      color: '#0d9488',
+      primarySymptoms: ['joint_pain', 'joint_swelling', 'muscle_ache'],
+      secondarySymptoms: ['numbness_tingling'],
+      riskModifiers: { 'age_senior': 20 },
+      description: 'Mechanical ligamentous strain or chronic cartilage degradation causing localized synovial irritation.',
+      recommendedAction: 'Weight-bearing plain radiography, physical therapy rehabilitation, topical/oral NSAIDs.'
+    }
+  ],
+
+  // Hospital specialists directory connected to differential results
+  doctors: [
+    {
+      id: 'doc_1',
+      name: 'Dr. Evelyn Reed, MD, FACC',
+      department: 'Cardiology & Heart Institute',
+      title: 'Chief of Interventional Cardiology',
+      experience: '18 Years Exp.',
+      rating: 4.95,
+      reviewsCount: 342,
+      education: 'Harvard Medical School / Johns Hopkins Fellowship',
+      availableToday: true,
+      nextSlot: 'Today, 2:30 PM',
+      avatarColor: '#0284c7'
+    },
+    {
+      id: 'doc_2',
+      name: 'Dr. Marcus Vance, MD',
+      department: 'Pulmonology & Respiratory Medicine',
+      title: 'Senior Pulmonologist & Critical Care',
+      experience: '14 Years Exp.',
+      rating: 4.91,
+      reviewsCount: 280,
+      education: 'Stanford University School of Medicine',
+      availableToday: true,
+      nextSlot: 'Today, 4:00 PM',
+      avatarColor: '#0d9488'
+    },
+    {
+      id: 'doc_3',
+      name: 'Dr. Alisha Chen, MD, PhD',
+      department: 'Neurology & Headache Center',
+      title: 'Director of Comprehensive Stroke Center',
+      experience: '16 Years Exp.',
+      rating: 4.98,
+      reviewsCount: 410,
+      education: 'Columbia University Vagelos College of Physicians',
+      availableToday: false,
+      nextSlot: 'Tomorrow, 9:15 AM',
+      avatarColor: '#6366f1'
+    },
+    {
+      id: 'doc_4',
+      name: 'Dr. Robert Stirling, MD, FACS',
+      department: 'General Surgery & Acute Care',
+      title: 'Head of Trauma & Emergency Surgery',
+      experience: '22 Years Exp.',
+      rating: 4.94,
+      reviewsCount: 520,
+      education: 'University of Pennsylvania / Mayo Clinic Resident',
+      availableToday: true,
+      nextSlot: 'On-Call Emergency',
+      avatarColor: '#dc2626'
+    },
+    {
+      id: 'doc_5',
+      name: 'Dr. Sophia Patel, MD',
+      department: 'Gastroenterology & Digestive Health',
+      title: 'Consultant Gastroenterologist & Endoscopist',
+      experience: '12 Years Exp.',
+      rating: 4.89,
+      reviewsCount: 195,
+      education: 'Northwestern University Feinberg School',
+      availableToday: true,
+      nextSlot: 'Today, 3:15 PM',
+      avatarColor: '#059669'
+    },
+    {
+      id: 'doc_6',
+      name: 'Dr. Jonathan Blake, MD',
+      department: 'Orthopedics & Sports Medicine',
+      title: 'Orthopedic Spine & Joint Specialist',
+      experience: '15 Years Exp.',
+      rating: 4.92,
+      reviewsCount: 310,
+      education: 'Duke University School of Medicine',
+      availableToday: false,
+      nextSlot: 'Tomorrow, 11:00 AM',
+      avatarColor: '#7c3aed'
+    }
+  ]
+};
+
+/**
+ * Diagnostic Evaluation Engine
+ */
+class DiagnosticEngine {
+  constructor(db = MEDICAL_DATABASE) {
+    this.db = db;
+  }
+
+  /**
+   * Run full clinical analysis based on patient input
+   * @param {Object} patientData - { ageGroup, sex, symptoms: [], severity, duration, conditions: [] }
+   * @returns {Object} Full diagnostic evaluation
+   */
+  evaluate(patientData) {
+    const {
+      ageGroup = 'adult',
+      sex = 'unspecified',
+      symptoms = [],
+      severity = 5,
+      duration = 'days',
+      conditions = []
+    } = patientData;
+
+    // 1. Check Emergency Red Flags
+    const emergencyTriggers = this.checkEmergencyProtocols(symptoms);
+
+    // 2. Score Condition Matches
+    const conditionScores = this.scoreConditions(symptoms, ageGroup, conditions, severity);
+
+    // 3. Determine Overall Triage Level
+    const triageTier = this.determineTriageTier(emergencyTriggers, conditionScores, severity);
+
+    // 4. Map relevant hospital doctors
+    const topCondition = conditionScores[0] || null;
+    const relevantDoctors = this.getRelevantDoctors(topCondition);
+
+    return {
+      timestamp: new Date().toISOString(),
+      patientSummary: {
+        ageGroup,
+        sex,
+        severity,
+        duration,
+        symptomCount: symptoms.length,
+        selectedSymptoms: symptoms.map(s => this.db.symptoms[s]?.name || s),
+        comorbidities: conditions
+      },
+      isEmergency: emergencyTriggers.length > 0 || severity >= 9,
+      emergencyProtocols: emergencyTriggers,
+      triageTier,
+      differentialMatches: conditionScores,
+      primaryImpression: topCondition,
+      recommendedDoctors: relevantDoctors
+    };
+  }
+
+  checkEmergencyProtocols(selectedSymptoms) {
+    const matchedProtocols = [];
+
+    for (const protocol of this.db.emergencyProtocols) {
+      const matchCount = protocol.triggers.filter(t => selectedSymptoms.includes(t)).length;
+      if (matchCount >= protocol.requiredMatches) {
+        matchedProtocols.push({
+          ...protocol,
+          matchedTriggers: protocol.triggers.filter(t => selectedSymptoms.includes(t))
+        });
+      }
+    }
+
+    // Also check single symptoms with emergency flag
+    for (const sId of selectedSymptoms) {
+      const symptomObj = this.db.symptoms[sId];
+      if (symptomObj && symptomObj.isEmergency) {
+        const alreadyIn = matchedProtocols.some(p => p.matchedTriggers && p.matchedTriggers.includes(sId));
+        if (!alreadyIn) {
+          matchedProtocols.push({
+            id: `urgent_${sId}`,
+            name: `Critical Symptom Detected: ${symptomObj.name}`,
+            guidance: 'This symptom is recognized as an acute red-flag requiring direct clinical triage.',
+            action: 'Seek immediate evaluation at an Emergency Center or dial 911.',
+            matchedTriggers: [sId]
+          });
+        }
+      }
+    }
+
+    return matchedProtocols;
+  }
+
+  scoreConditions(selectedSymptoms, ageGroup, comorbidities, severity) {
+    if (!selectedSymptoms || selectedSymptoms.length === 0) {
+      return [];
+    }
+
+    const results = [];
+
+    for (const condition of this.db.conditions) {
+      let score = 0;
+      let matchedPrimary = [];
+      let matchedSecondary = [];
+
+      // Primary symptoms match (heavy weight: 30 pts each)
+      for (const pSym of condition.primarySymptoms) {
+        if (selectedSymptoms.includes(pSym)) {
+          score += 35;
+          matchedPrimary.push(this.db.symptoms[pSym]?.name || pSym);
+        }
+      }
+
+      // Secondary symptoms match (moderate weight: 15 pts each)
+      for (const sSym of condition.secondarySymptoms) {
+        if (selectedSymptoms.includes(sSym)) {
+          score += 15;
+          matchedSecondary.push(this.db.symptoms[sSym]?.name || sSym);
+        }
+      }
+
+      // If at least one symptom matched
+      if (score > 0) {
+        // Apply Comorbidity / Risk factor weights
+        let riskScoreBonus = 0;
+        if (condition.riskModifiers) {
+          if (ageGroup === 'senior' && condition.riskModifiers['age_senior']) {
+            riskScoreBonus += condition.riskModifiers['age_senior'];
+          }
+          if (ageGroup === 'child' && condition.riskModifiers['age_child']) {
+            riskScoreBonus += condition.riskModifiers['age_child'];
+          }
+          for (const c of comorbidities) {
+            if (condition.riskModifiers[c]) {
+              riskScoreBonus += condition.riskModifiers[c];
+            }
+          }
+        }
+
+        // Severity weight boost for emergency conditions
+        if (condition.urgency === 'emergency' && severity >= 7) {
+          score += 20;
+        }
+
+        const totalPoints = score + riskScoreBonus;
+        // Normalize probability percentage with maximum cap at 96% (clinical uncertainty)
+        const confidencePercentage = Math.min(96, Math.max(25, Math.round((totalPoints / 110) * 100)));
+
+        results.push({
+          ...condition,
+          confidencePercentage,
+          matchedPrimary,
+          matchedSecondary,
+          totalPoints
+        });
+      }
+    }
+
+    // Sort descending by match confidence
+    results.sort((a, b) => b.confidencePercentage - a.confidencePercentage);
+    return results.slice(0, 5); // Return top 5 differential diagnoses
+  }
+
+  determineTriageTier(emergencies, conditions, severity) {
+    if (emergencies.length > 0 || severity >= 9) {
+      return {
+        level: 'emergency',
+        title: 'Immediate Emergency Care Required (Level 1)',
+        badgeClass: 'badge-emergency',
+        icon: 'alert-triangle',
+        waitEstimate: '< 10 mins (Emergency Triage)',
+        recommendation: 'Do not wait for a scheduled appointment. Visit the nearest 24/7 Emergency Department or call 911 immediately.'
+      };
+    }
+
+    const topMatch = conditions[0];
+    if (topMatch && (topMatch.urgency === 'urgent' || severity >= 6)) {
+      return {
+        level: 'urgent',
+        title: 'Same-Day Urgent Care Recommended (Level 2)',
+        badgeClass: 'badge-urgent',
+        icon: 'clock',
+        waitEstimate: 'Estimated Wait: 15-30 mins',
+        recommendation: 'Evaluation within 4 to 12 hours is recommended at our Walk-in Urgent Care or Same-Day Acute Clinic.'
+      };
+    }
+
+    return {
+      level: 'routine',
+      title: 'Scheduled Specialist / Primary Consultation (Level 3/4)',
+      badgeClass: 'badge-routine',
+      icon: 'calendar',
+      waitEstimate: 'Next available slots open today & tomorrow',
+      recommendation: 'Book an in-person clinic consultation or immediate virtual telehealth visit with our specialist team.'
+    };
+  }
+
+  getRelevantDoctors(topCondition) {
+    if (!topCondition) {
+      return this.db.doctors.slice(0, 3);
+    }
+    const matched = this.db.doctors.filter(d => d.department === topCondition.department);
+    return matched.length > 0 ? matched : this.db.doctors.slice(0, 3);
+  }
+}
+
+// Export instance
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { DiagnosticEngine, MEDICAL_DATABASE };
+}
+
+</script>
+  <script>
+/**
+ * Aegis Health - Hospital Frontend Application & Diagnostics Controller
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Initialize Diagnostic Engine
+  const engine = new DiagnosticEngine(MEDICAL_DATABASE);
+
+  // State
+  const state = {
+    selectedRegion: 'chest',
+    selectedSymptoms: new Set(['chest_pain', 'shortness_of_breath']),
+    severity: 5,
+    duration: 'days',
+    ageGroup: 'adult',
+    sex: 'female',
+    comorbidities: new Set(),
+    activeTab: 'interactive',
+    currentEvaluation: null
+  };
+
+  // DOM Elements
+  const regionSelectorGrid = document.getElementById('region-selector-grid');
+  const regionSymptomsList = document.getElementById('region-symptoms-list');
+  const trayChipsContainer = document.getElementById('tray-chips-container');
+  const severitySlider = document.getElementById('severity-slider');
+  const severityDisplay = document.getElementById('severity-display');
+  const selectAge = document.getElementById('select-age');
+  const selectSex = document.getElementById('select-sex');
+  const selectDuration = document.getElementById('select-duration');
+  const comorbidityInputs = document.querySelectorAll('input[name="comorbidity"]');
+  
+  // Output Elements
+  const emergencyAlertBox = document.getElementById('emergency-alert-box');
+  const emergencyAlertTitle = document.getElementById('emergency-alert-title');
+  const emergencyAlertDesc = document.getElementById('emergency-alert-desc');
+  const triageTierCard = document.getElementById('triage-tier-card');
+  const triageStatusBadge = document.getElementById('triage-status-badge');
+  const triageWaitEstimate = document.getElementById('triage-wait-estimate');
+  const triageRecommendationTitle = document.getElementById('triage-recommendation-title');
+  const triageRecommendationText = document.getElementById('triage-recommendation-text');
+  const differentialMatchesList = document.getElementById('differential-matches-list');
+  
+  // Specialist elements
+  const recomDocAvatar = document.getElementById('recom-doc-avatar');
+  const recomDocName = document.getElementById('recom-doc-name');
+  const recomDocSpecialty = document.getElementById('recom-doc-specialty');
+  const btnRecomBook = document.getElementById('btn-recom-book');
+  
+  // Hero & Search elements
+  const quickSymptomInput = document.getElementById('quick-symptom-input');
+  const quickTagCloud = document.getElementById('quick-tag-cloud');
+  const btnResetDiagnostics = document.getElementById('btn-reset-diagnostics');
+  const btnPrintReport = document.getElementById('btn-print-report');
+  
+  // Doctor directory grid
+  const doctorsGridContainer = document.getElementById('doctors-grid-container');
+
+  // Modals
+  const appointmentModal = document.getElementById('appointment-modal');
+  const modalCloseBooking = document.getElementById('modal-close-booking');
+  const btnCancelBooking = document.getElementById('btn-cancel-booking');
+  const bookingForm = document.getElementById('booking-form');
+  const modalSelectDept = document.getElementById('modal-select-dept');
+  const modalSelectDoc = document.getElementById('modal-select-doc');
+  const patientSymptomNote = document.getElementById('patient-symptom-note');
+  const bookingSuccessBox = document.getElementById('booking-success-box');
+  const bookingConfirmationDetails = document.getElementById('booking-confirmation-details');
+  const btnCloseSuccess = document.getElementById('btn-close-success');
+  const btnQuickBook = document.getElementById('btn-quick-book');
+
+  // Report Modal
+  const reportModal = document.getElementById('report-modal');
+  const modalCloseReport = document.getElementById('modal-close-report');
+  const btnModalCloseReportFooter = document.getElementById('btn-modal-close-report-footer');
+  const printableReportContent = document.getElementById('printable-report-content');
+
+  // Tabs
+  const tabInteractive = document.getElementById('tab-interactive');
+  const tabEmergencyGuidelines = document.getElementById('tab-emergency-guidelines');
+
+  /**
+   * Render Symptoms list for current selected region
+   */
+  function renderRegionSymptoms() {
+    if (!regionSymptomsList) return;
+    regionSymptomsList.innerHTML = '';
+
+    const currentRegionObj = MEDICAL_DATABASE.bodyRegions.find(r => r.id === state.selectedRegion);
+    if (!currentRegionObj) return;
+
+    currentRegionObj.commonSymptoms.forEach(symKey => {
+      const symObj = MEDICAL_DATABASE.symptoms[symKey];
+      if (!symObj) return;
+
+      const isSelected = state.selectedSymptoms.has(symKey);
+      const isEmergency = symObj.isEmergency;
+
+      const chip = document.createElement('button');
+      chip.type = 'button';
+      chip.className = `symptom-toggle-chip ${isSelected ? 'selected' : ''} ${isEmergency ? 'emergency' : ''}`;
+      chip.innerHTML = `
+        ${isEmergency ? '<span style="color:#ef4444; font-weight:800;">!</span>' : ''}
+        ${symObj.name}
+        <span style="font-size:0.75rem; opacity:0.8;">${isSelected ? '&#10003;' : '+'}</span>
+      `;
+
+      chip.addEventListener('click', () => {
+        toggleSymptom(symKey);
+      });
+
+      regionSymptomsList.appendChild(chip);
+    });
+  }
+
+  /**
+   * Toggle symptom in state
+   */
+  function toggleSymptom(symKey) {
+    if (state.selectedSymptoms.has(symKey)) {
+      state.selectedSymptoms.delete(symKey);
+    } else {
+      state.selectedSymptoms.add(symKey);
+    }
+    renderRegionSymptoms();
+    renderTrayChips();
+    runClinicalEvaluation();
+  }
+
+  /**
+   * Render Selected Symptoms Tray
+   */
+  function renderTrayChips() {
+    if (!trayChipsContainer) return;
+    trayChipsContainer.innerHTML = '';
+
+    if (state.selectedSymptoms.size === 0) {
+      trayChipsContainer.innerHTML = `<span style="font-size:0.82rem; color:#94a3b8; font-style:italic;">No symptoms selected. Click options above to assess.</span>`;
+      return;
+    }
+
+    state.selectedSymptoms.forEach(symKey => {
+      const symObj = MEDICAL_DATABASE.symptoms[symKey];
+      const name = symObj ? symObj.name : symKey;
+
+      const chip = document.createElement('span');
+      chip.className = 'tray-chip';
+      chip.innerHTML = `
+        ${name}
+        <span class="tray-remove" title="Remove">&times;</span>
+      `;
+
+      chip.querySelector('.tray-remove').addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleSymptom(symKey);
+      });
+
+      trayChipsContainer.appendChild(chip);
+    });
+  }
+
+  /**
+   * Run Real-Time Clinical Analysis
+   */
+  function runClinicalEvaluation() {
+    const patientData = {
+      ageGroup: state.ageGroup,
+      sex: state.sex,
+      symptoms: Array.from(state.selectedSymptoms),
+      severity: state.severity,
+      duration: state.duration,
+      conditions: Array.from(state.comorbidities)
+    };
+
+    const evaluation = engine.evaluate(patientData);
+    state.currentEvaluation = evaluation;
+
+    // 1. Emergency Red-Flag Banner
+    if (evaluation.isEmergency && evaluation.emergencyProtocols.length > 0) {
+      const primaryProtocol = evaluation.emergencyProtocols[0];
+      emergencyAlertTitle.textContent = primaryProtocol.name || 'CRITICAL EMERGENCY ALERT';
+      emergencyAlertDesc.textContent = `${primaryProtocol.guidance} -> Action: ${primaryProtocol.action}`;
+      emergencyAlertBox.style.display = 'block';
+    } else if (state.severity >= 9) {
+      emergencyAlertTitle.textContent = 'HIGH SEVERITY PAIN PROTOCOL (9-10/10)';
+      emergencyAlertDesc.textContent = 'Reported discomfort is severe/incapacitating. Rapid in-person emergency triage is strongly recommended.';
+      emergencyAlertBox.style.display = 'block';
+    } else {
+      emergencyAlertBox.style.display = 'none';
+    }
+
+    // 2. Triage Tier Card
+    const triage = evaluation.triageTier;
+    triageStatusBadge.textContent = triage.title;
+    triageStatusBadge.className = `triage-status-badge ${triage.badgeClass}`;
+    triageWaitEstimate.textContent = triage.waitEstimate;
+
+    if (evaluation.primaryImpression) {
+      triageRecommendationTitle.textContent = `Triage Recommendation: ${triage.title}`;
+      triageRecommendationText.textContent = triage.recommendation;
+    } else {
+      triageRecommendationTitle.textContent = 'Awaiting Clinical Symptoms';
+      triageRecommendationText.textContent = 'Please choose active symptoms from the anatomical selector on the left to compute real-time triage.';
+    }
+
+    // 3. Differential Matches List
+    if (!differentialMatchesList) return;
+    differentialMatchesList.innerHTML = '';
+
+    if (evaluation.differentialMatches.length === 0) {
+      differentialMatchesList.innerHTML = `
+        <p style="font-size:0.85rem; color:#94a3b8; font-style:italic; padding:10px 0;">
+          No matching diagnostic profiles found for selected criteria. Add or search symptoms to compute probability.
+        </p>
+      `;
+    } else {
+      evaluation.differentialMatches.forEach(item => {
+        const matchEl = document.createElement('div');
+        matchEl.className = 'match-item';
+        matchEl.innerHTML = `
+          <div class="match-head">
+            <span class="match-name">${item.name}</span>
+            <span class="match-pct" style="color:${item.color}">${item.confidencePercentage}% Match</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width: ${item.confidencePercentage}%; background:${item.color};"></div>
+          </div>
+          <p class="match-desc">${item.description}</p>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span class="match-dept-pill">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"></path></svg>
+              ${item.department}
+            </span>
+            <span style="font-size:0.75rem; font-weight:700; color:${item.color}; text-transform:uppercase;">${item.urgencyLabel}</span>
+          </div>
+        `;
+        differentialMatchesList.appendChild(matchEl);
+      });
+    }
+
+    // 4. Update Recommended Specialist Card
+    const doc = evaluation.recommendedDoctors[0] || MEDICAL_DATABASE.doctors[0];
+    if (doc) {
+      recomDocName.textContent = doc.name;
+      recomDocSpecialty.textContent = `${doc.title} &bull; ${doc.department}`;
+      recomDocAvatar.textContent = doc.name.split(' ')[1]?.substring(0, 2) || 'MD';
+      recomDocAvatar.style.background = doc.avatarColor || '#0284c7';
+      btnRecomBook.onclick = () => openBookingModal(doc.department, doc.name);
+    }
+  }
+
+  /**
+   * Render Doctors Directory
+   */
+  function renderDoctorsDirectory() {
+    if (!doctorsGridContainer) return;
+    doctorsGridContainer.innerHTML = '';
+
+    MEDICAL_DATABASE.doctors.forEach(doc => {
+      const card = document.createElement('div');
+      card.className = 'doc-card';
+      const initials = doc.name.replace('Dr. ', '').split(' ').slice(0, 2).map(n => n[0]).join('');
+
+      card.innerHTML = `
+        <div class="doc-card-body">
+          <div class="doc-header">
+            <div class="doc-avatar-large" style="background:${doc.avatarColor};">${initials}</div>
+            <div>
+              <h3 style="font-size:1.1rem; line-height:1.2;">${doc.name}</h3>
+              <p style="font-size:0.85rem; color:#0284c7; font-weight:600; margin-top:2px;">${doc.title}</p>
+              <div class="doc-rating-chip">&#9733; ${doc.rating} (${doc.reviewsCount} reviews)</div>
+            </div>
+          </div>
+          <div class="doc-meta">
+            <div><strong>Department:</strong> ${doc.department}</div>
+            <div><strong>Credentials:</strong> ${doc.education}</div>
+            <div><strong>Experience:</strong> ${doc.experience}</div>
+          </div>
+          <div class="doc-slot-badge">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            Next Opening: ${doc.nextSlot}
+          </div>
+        </div>
+        <div class="doc-card-footer">
+          <button class="btn btn-secondary btn-sm" onclick="viewDoctorProfile('${doc.id}')">Credentials</button>
+          <button class="btn btn-primary btn-sm" onclick="openBookingModal('${doc.department}', '${doc.name}')">Book Appointment</button>
+        </div>
+      `;
+      doctorsGridContainer.appendChild(card);
+    });
+  }
+
+  /**
+   * Populate Doctors Dropdown in Booking Modal
+   */
+  function populateModalDoctors(selectedDept) {
+    if (!modalSelectDoc) return;
+    modalSelectDoc.innerHTML = '';
+
+    const filteredDocs = MEDICAL_DATABASE.doctors.filter(d => d.department === selectedDept);
+    const docsToUse = filteredDocs.length > 0 ? filteredDocs : MEDICAL_DATABASE.doctors;
+
+    docsToUse.forEach(doc => {
+      const opt = document.createElement('option');
+      opt.value = doc.name;
+      opt.textContent = `${doc.name} (${doc.title.split('&')[0]})`;
+      modalSelectDoc.appendChild(opt);
+    });
+  }
+
+  /**
+   * Open Booking Modal with Context
+   */
+  window.openBookingModal = function(department, doctorName) {
+    if (department && modalSelectDept) {
+      modalSelectDept.value = department;
+    }
+    populateModalDoctors(modalSelectDept.value);
+    if (doctorName && modalSelectDoc) {
+      modalSelectDoc.value = doctorName;
+    }
+
+    // Auto-fill active symptoms note
+    if (patientSymptomNote) {
+      const symptomsList = Array.from(state.selectedSymptoms)
+        .map(s => MEDICAL_DATABASE.symptoms[s]?.name || s)
+        .join(', ');
+      patientSymptomNote.value = symptomsList ? `Home Diagnosis Triage: Patient reported [${symptomsList}] with Severity ${state.severity}/10.` : '';
+    }
+
+    // Default to tomorrow's date
+    const bookingDateInput = document.getElementById('booking-date');
+    if (bookingDateInput) {
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      bookingDateInput.value = tomorrow.toISOString().split('T')[0];
+    }
+
+    bookingForm.style.display = 'block';
+    bookingSuccessBox.style.display = 'none';
+    appointmentModal.classList.add('active');
+  };
+
+  /**
+   * Close Booking Modal
+   */
+  function closeBookingModal() {
+    appointmentModal.classList.remove('active');
+  }
+
+  /**
+   * Open Report Modal
+   */
+  function openReportModal() {
+    if (!state.currentEvaluation) return;
+    const evalData = state.currentEvaluation;
+    const symptomsStr = evalData.patientSummary.selectedSymptoms.join(', ') || 'None reported';
+    const comorbiditiesStr = evalData.patientSummary.comorbidities.join(', ') || 'None reported';
+
+    let diffHtml = '';
+    evalData.differentialMatches.forEach((m, idx) => {
+      diffHtml += `
+        <li style="margin-bottom:8px;">
+          <strong>#${idx + 1} ${m.name} (${m.confidencePercentage}% Match)</strong> - ${m.urgencyLabel}
+          <div style="font-size:0.85rem; color:#475569;">${m.recommendedAction}</div>
+        </li>
+      `;
+    });
+
+    printableReportContent.innerHTML = `
+      <div style="border-bottom:2px solid #0f172a; padding-bottom:12px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:flex-end;">
+        <div>
+          <h2 style="font-size:1.4rem; color:#0f172a;">AEGIS HEALTH ACADEMIC MEDICAL CENTER</h2>
+          <div style="font-size:0.85rem; color:#475569;">Clinical Triage & Differential Assessment Summary</div>
+        </div>
+        <div style="text-align:right; font-size:0.8rem; color:#64748b;">
+          <div>Generated: ${new Date().toLocaleString()}</div>
+          <div>Report ID: #AGY-${Math.floor(100000 + Math.random() * 900000)}</div>
+        </div>
+      </div>
+
+      <div style="background:#f8fafc; padding:12px 16px; border-radius:8px; margin-bottom:16px;">
+        <h4 style="font-size:0.9rem; margin-bottom:6px; color:#0f172a;">Patient Parameters</h4>
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); font-size:0.85rem; gap:8px;">
+          <div><strong>Age Bracket:</strong> ${state.ageGroup.toUpperCase()}</div>
+          <div><strong>Biological Sex:</strong> ${state.sex.toUpperCase()}</div>
+          <div><strong>Reported Severity:</strong> ${state.severity} / 10</div>
+          <div><strong>Duration:</strong> ${state.duration}</div>
+          <div style="grid-column: span 2;"><strong>Comorbidities:</strong> ${comorbiditiesStr}</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <h4 style="font-size:0.9rem; margin-bottom:6px; color:#0f172a;">Presenting Chief Symptoms</h4>
+        <div style="font-size:0.88rem; padding:8px 12px; background:#eff6ff; border-left:4px solid #0284c7; border-radius:4px;">
+          ${symptomsStr}
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <h4 style="font-size:0.9rem; margin-bottom:6px; color:#0f172a;">Calculated Triage Stratification</h4>
+        <div style="padding:10px 14px; border-radius:6px; background:${evalData.isEmergency ? '#fee2e2' : '#f0fdf4'}; border:1px solid ${evalData.isEmergency ? '#f87171' : '#86efac'};">
+          <strong style="color:${evalData.isEmergency ? '#b91c1c' : '#166534'};">${evalData.triageTier.title}</strong>
+          <p style="font-size:0.85rem; margin-top:4px;">${evalData.triageTier.recommendation}</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <h4 style="font-size:0.9rem; margin-bottom:6px; color:#0f172a;">Algorithmic Differential Diagnostic Probabilities</h4>
+        <ol style="padding-left:20px; font-size:0.88rem;">
+          ${diffHtml || '<li>No specific differential reached.</li>'}
+        </ol>
+      </div>
+
+      <div style="font-size:0.75rem; color:#64748b; border-top:1px dashed #cbd5e1; padding-top:10px; margin-top:20px;">
+        <em>Notice for Medical Personnel: This report was prepared by the patient using Aegis Health Home Triage decision-support software. It does not replace a clinical examination, labs, or diagnostic imaging.</em>
+      </div>
+    `;
+
+    reportModal.classList.add('active');
+  }
+
+  window.viewDoctorProfile = function(docId) {
+    const doc = MEDICAL_DATABASE.doctors.find(d => d.id === docId);
+    if (!doc) return;
+    alert(`${doc.name}\n\nTitle: ${doc.title}\nDepartment: ${doc.department}\nEducation: ${doc.education}\nExperience: ${doc.experience}\nPatient Rating: ${doc.rating}/5.0\nNext Opening: ${doc.nextSlot}`);
+  };
+
+  window.openDirections = function(address) {
+    alert(`GPS Route initiated to Aegis Health Facility:\n${address}\n\nLive navigation sent to mobile.`);
+  };
+
+  // Event Listeners for Region Buttons
+  if (regionSelectorGrid) {
+    const regionButtons = regionSelectorGrid.querySelectorAll('.region-btn');
+    regionButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        regionButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.selectedRegion = btn.dataset.region;
+        renderRegionSymptoms();
+      });
+    });
+  }
+
+  // Severity Slider
+  if (severitySlider) {
+    severitySlider.addEventListener('input', (e) => {
+      state.severity = parseInt(e.target.value, 10);
+      let descriptor = 'Mild';
+      if (state.severity >= 4 && state.severity <= 6) descriptor = 'Moderate';
+      else if (state.severity >= 7 && state.severity <= 8) descriptor = 'Severe';
+      else if (state.severity >= 9) descriptor = 'Critical / Emergency';
+
+      severityDisplay.textContent = `${state.severity} / 10 (${descriptor})`;
+      severityDisplay.style.color = state.severity >= 8 ? '#dc2626' : (state.severity >= 5 ? '#0284c7' : '#059669');
+      runClinicalEvaluation();
+    });
+  }
+
+  // Age & Sex Selectors
+  if (selectAge) {
+    selectAge.addEventListener('change', (e) => {
+      state.ageGroup = e.target.value;
+      runClinicalEvaluation();
+    });
+  }
+
+  if (selectSex) {
+    selectSex.addEventListener('change', (e) => {
+      state.sex = e.target.value;
+      runClinicalEvaluation();
+    });
+  }
+
+  if (selectDuration) {
+    selectDuration.addEventListener('change', (e) => {
+      state.duration = e.target.value;
+      runClinicalEvaluation();
+    });
+  }
+
+  // Comorbidities
+  comorbidityInputs.forEach(input => {
+    input.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        state.comorbidities.add(e.target.value);
+      } else {
+        state.comorbidities.delete(e.target.value);
+      }
+      runClinicalEvaluation();
+    });
+  });
+
+  // Hero Quick Tag Chips
+  if (quickTagCloud) {
+    quickTagCloud.querySelectorAll('.quick-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const sym = chip.dataset.symptom;
+        if (sym) {
+          state.selectedSymptoms.add(sym);
+          // Auto switch to that region
+          const cat = MEDICAL_DATABASE.symptoms[sym]?.category;
+          if (cat) {
+            state.selectedRegion = cat;
+            const regionBtns = regionSelectorGrid.querySelectorAll('.region-btn');
+            regionBtns.forEach(b => b.classList.toggle('active', b.dataset.region === cat));
+          }
+          renderRegionSymptoms();
+          renderTrayChips();
+          runClinicalEvaluation();
+          // Scroll down to diagnostics engine
+          document.getElementById('diagnostics-engine')?.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  }
+
+  // Quick Hero Search Bar (Auto-complete / search)
+  if (quickSymptomInput) {
+    quickSymptomInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const query = quickSymptomInput.value.toLowerCase().trim();
+        if (!query) return;
+
+        // Find matching symptom
+        const matchedKey = Object.keys(MEDICAL_DATABASE.symptoms).find(k => {
+          return k.toLowerCase().includes(query) || MEDICAL_DATABASE.symptoms[k].name.toLowerCase().includes(query);
+        });
+
+        if (matchedKey) {
+          state.selectedSymptoms.add(matchedKey);
+          const cat = MEDICAL_DATABASE.symptoms[matchedKey]?.category;
+          if (cat) {
+            state.selectedRegion = cat;
+            const regionBtns = regionSelectorGrid.querySelectorAll('.region-btn');
+            regionBtns.forEach(b => b.classList.toggle('active', b.dataset.region === cat));
+          }
+          renderRegionSymptoms();
+          renderTrayChips();
+          runClinicalEvaluation();
+          document.getElementById('diagnostics-engine')?.scrollIntoView({ behavior: 'smooth' });
+          quickSymptomInput.value = '';
+        } else {
+          alert(`No exact match found for "${query}". Please select from the anatomical categories in our Clinical Diagnostic Studio below.`);
+          document.getElementById('diagnostics-engine')?.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  }
+
+  // Reset Button
+  if (btnResetDiagnostics) {
+    btnResetDiagnostics.addEventListener('click', () => {
+      state.selectedSymptoms.clear();
+      state.severity = 5;
+      if (severitySlider) severitySlider.value = 5;
+      if (severityDisplay) severityDisplay.textContent = '5 / 10 (Moderate)';
+      renderRegionSymptoms();
+      renderTrayChips();
+      runClinicalEvaluation();
+    });
+  }
+
+  // Report Modal triggers
+  if (btnPrintReport) btnPrintReport.addEventListener('click', openReportModal);
+  if (modalCloseReport) modalCloseReport.addEventListener('click', () => reportModal.classList.remove('active'));
+  if (btnModalCloseReportFooter) btnModalCloseReportFooter.addEventListener('click', () => reportModal.classList.remove('active'));
+
+  // Booking Modal triggers
+  if (modalCloseBooking) modalCloseBooking.addEventListener('click', closeBookingModal);
+  if (btnCancelBooking) btnCancelBooking.addEventListener('click', closeBookingModal);
+  if (btnQuickBook) btnQuickBook.addEventListener('click', () => openBookingModal('Cardiology & Heart Institute', 'Dr. Evelyn Reed, MD, FACC'));
+
+  if (modalSelectDept) {
+    modalSelectDept.addEventListener('change', (e) => {
+      populateModalDoctors(e.target.value);
+    });
+  }
+
+  // Booking Form Submission
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const patientName = document.getElementById('patient-name')?.value || 'Patient';
+      const patientPhone = document.getElementById('patient-phone')?.value || '';
+      const doctor = modalSelectDoc?.value || 'Specialist';
+      const date = document.getElementById('booking-date')?.value || 'Tomorrow';
+      const time = document.getElementById('booking-time')?.value || '02:30 PM';
+
+      bookingForm.style.display = 'none';
+      bookingSuccessBox.style.display = 'block';
+      bookingConfirmationDetails.innerHTML = `
+        <strong>Patient:</strong> ${patientName}<br>
+        <strong>Consultation with:</strong> ${doctor}<br>
+        <strong>Date & Time:</strong> ${date} at ${time}<br>
+        <strong>Confirmation Code:</strong> #AGY-${Math.floor(100000 + Math.random() * 900000)}<br>
+        <span style="display:inline-block; margin-top:8px; font-size:0.85rem; color:#0369a1;">A confirmation SMS has been sent to ${patientPhone}.</span>
+      `;
+    });
+  }
+
+  if (btnCloseSuccess) {
+    btnCloseSuccess.addEventListener('click', closeBookingModal);
+  }
+
+  // Emergency Guidelines tab switch
+  if (tabEmergencyGuidelines && tabInteractive) {
+    tabEmergencyGuidelines.addEventListener('click', () => {
+      tabEmergencyGuidelines.classList.add('active');
+      tabInteractive.classList.remove('active');
+      alert("Emergency Red-Flag Criteria:\n\n1. Crushing chest pressure with arm/jaw radiation (Heart Attack)\n2. Sudden facial droop, arm weakness, or slurred speech (FAST Stroke)\n3. Throat swelling or acute respiratory stridor (Anaphylaxis)\n4. Stiff neck with sudden high fever and confusion (Meningitis)\n5. Sudden worst headache of life ('Thunderclap')\n\nIf any of these are present, bypass online scheduling and dial 911 immediately.");
+    });
+
+    tabInteractive.addEventListener('click', () => {
+      tabInteractive.classList.add('active');
+      tabEmergencyGuidelines.classList.remove('active');
+    });
+  }
+
+  // Live Wait Time Fluctuation simulation (every 15s)
+  setInterval(() => {
+    const erWait = document.getElementById('er-wait-time');
+    const locMain = document.getElementById('loc-wait-main');
+    if (erWait && locMain) {
+      const waitMins = Math.floor(10 + Math.random() * 6);
+      erWait.textContent = `${waitMins} mins`;
+      locMain.textContent = `${waitMins} mins`;
+    }
+  }, 15000);
+
+  // Initial Boot
+  renderRegionSymptoms();
+  renderTrayChips();
+  renderDoctorsDirectory();
+  runClinicalEvaluation();
+});
+
+</script>
+</body>
+</html>
+
